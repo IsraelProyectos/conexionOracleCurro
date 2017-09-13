@@ -5,7 +5,7 @@ import wx.grid as gridlib
 import gridview
 miLista=[ ]
 
-query="select * from BASTIDORES_DEVUELTOS_ABRIL"
+query="select * from SKO_MANT_GRATUITO_MAIL_TOFF"
 
 ao=accesoOracle.connectToOracle(query)
 

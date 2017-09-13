@@ -1,7 +1,6 @@
 import wx
 import wx.grid as gridlib
- 
-########################################################################
+
 class MyForm(wx.Frame):
     """"""
  
@@ -10,10 +9,9 @@ class MyForm(wx.Frame):
         """Constructor"""
         wx.Frame.__init__(self, parent=None, title="Base de datos")
         panel = wx.Panel(self)
- 
         myGrid = gridlib.Grid(panel)
         myGrid.CreateGrid(500, numColumns)
- 
+        
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(myGrid, 1, wx.EXPAND)
         panel.SetSizer(sizer)
@@ -25,8 +23,11 @@ class MyForm(wx.Frame):
             y=0
             for datoPersonaje in personaje:
                 #print(len(datoPersonaje))
-                datosPersonaje=personaje[y]
-                myGrid.SetCellValue(i, y, str(datoPersonaje))
+                #datosPersonaje=personaje[y]
+                datoPersonaje=str(datoPersonaje)
+                datoPersonaje = unicode(datoPersonaje, "ISO-8859-1")
+                myGrid.SetCellValue(i, y, datoPersonaje)
+                
                 y = y+1
         
             #print(i)
