@@ -17,13 +17,13 @@ class MyForm(wx.Frame):
         panel.SetSizer(sizer)
         i=0
         
-        for personaje in miLista:
-            personaje=miLista[i]
-            #print(len(personaje))
+        for registro in miLista:
+            #registro=miLista[i]
+            #print(len(registro))
             y=0
-            for datoPersonaje in personaje:
+            for datoPersonaje in registro:
                 #print(len(datoPersonaje))
-                #datosPersonaje=personaje[y]
+                #datosPersonaje=registro[y]
                 datoPersonaje=str(datoPersonaje)
                 datoPersonaje = unicode(datoPersonaje, "ISO-8859-1")
                 myGrid.SetCellValue(i, y, datoPersonaje)

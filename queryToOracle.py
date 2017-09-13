@@ -5,7 +5,7 @@ import wx.grid as gridlib
 import gridview
 miLista=[ ]
 
-query="select distinct * from vaesa_externo.maestro_tmaimg WHERE UPPER(desc_modelo) LIKE upper('xl1')"
+query="select distinct * from SKO_PRE_ITV_MAIL_TOFF"
 
 ao=accesoOracle.connectToOracle(query)
 
@@ -14,12 +14,12 @@ numColums=0
 try:
 	cursorData=ao.connect()
 
-	for personaje in cursorData:
+	for registro in cursorData:
 
-		miLista.append(personaje)
+		miLista.append(registro)
 		
 
-		numColums=len(personaje)
+		numColums=len(registro)
 
 	print(len(miLista))
 	#print(usuario)
