@@ -5,10 +5,12 @@ import wx.grid as gridlib
 import gridview
 miLista=[ ]
 
-query="select distinct * from SKO_PRE_ITV_MAIL_TOFF"
+query="select * from SKO_MANT_GRATUITO_MAIL_TOFF"
 
-ao=accesoOracle.connectToOracle(query)
+connectionString='WORK_SKO/WORK_SKO@bvn002b.bbdo.local/PRDBATCH'
 
+ao=accesoOracle.connectToOracle(query,connectionString)
+app=wx.App()
 numColums=0
 
 try:
@@ -21,14 +23,18 @@ try:
 
 		numColums=len(registro)
 
-	print(len(miLista))
+	#print(len(miLista))
 	#print(usuario)
+
+
+	gv=gridview.MyForm(numColums,miLista)
+	frame = gv.Show()
+	app.MainLoop()
+
 except TypeError:
-	print("No se pueden sacar resultados")
+	print("No se pueden sacar resultados")	
+	wx.MessageBox('No se pueden sacar resultados', 'Informacion', 
+    wx.OK | wx.ICON_INFORMATION)
 
 
-app = wx.PySimpleApp()
-gv=gridview.MyForm(numColums,miLista)
 
-frame = gv.Show()
-app.MainLoop()

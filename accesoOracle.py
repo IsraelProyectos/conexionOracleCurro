@@ -3,12 +3,12 @@ import cx_Oracle
 
 class connectToOracle():
 
-	def __init__(self,query):
+	def __init__(self,query,connectionString):
 		self.query=query
-
+		self.connectionString=connectionString
 	def connect(self):
 		try:	   
-			con =  cx_Oracle.connect('WORK_SKO/WORK_SKO@bvn002b.bbdo.local/PRDBATCH')
+			con =  cx_Oracle.connect(self.connectionString)
 			#print(con.version)
 			cur = con.cursor()
 			cur.execute(self.query)
