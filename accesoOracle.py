@@ -1,12 +1,13 @@
 import cx_Oracle
 
+
 class connectToOracle():
 
 	def __init__(self,query):
 		self.query=query
 
 	def connect(self):
-		
+		try:	   
 			con =  cx_Oracle.connect('WORK_SKO/WORK_SKO@bvn002b.bbdo.local/PRDBATCH')
 			#print(con.version)
 			cur = con.cursor()
@@ -17,4 +18,8 @@ class connectToOracle():
 			return cur
 			cur.close()
 			con.close()
-		
+		except cx_Oracle.DatabaseError as e:
+			error, = e.args
+			if error.code == 24373:
+				print("Se ha entregado una query vacia")
+			
