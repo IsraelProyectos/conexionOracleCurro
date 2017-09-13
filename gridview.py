@@ -10,7 +10,7 @@ class MyForm(wx.Frame):
         wx.Frame.__init__(self, parent=None, title="Base de datos")
         panel = wx.Panel(self)
         myGrid = gridlib.Grid(panel)
-        myGrid.CreateGrid(500, numColumns)
+        myGrid.CreateGrid(len(miLista), numColumns)
         
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(myGrid, 1, wx.EXPAND)

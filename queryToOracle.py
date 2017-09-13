@@ -5,7 +5,7 @@ import wx.grid as gridlib
 import gridview
 miLista=[ ]
 
-query="select * from SKO_MANT_GRATUITO_MAIL_TOFF"
+query="select distinct * from vaesa_externo.maestro_tmaimg WHERE UPPER(desc_modelo) LIKE upper('xl1')"
 
 ao=accesoOracle.connectToOracle(query)
 
@@ -21,14 +21,14 @@ try:
 
 		numColums=len(personaje)
 
-	#print(miLista)
+	print(len(miLista))
 	#print(usuario)
 except TypeError:
 	print("No se pueden sacar resultados")
 
 
 app = wx.PySimpleApp()
-gf=gridview.MyForm(numColums,miLista)
+gv=gridview.MyForm(numColums,miLista)
 
-frame = gf.Show()
+frame = gv.Show()
 app.MainLoop()
